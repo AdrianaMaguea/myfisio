@@ -1,0 +1,75 @@
+@import "./styles/variables";
+
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    &-logo {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 70px;
+        img {
+            max-width: 190px;
+        }
+        ul {
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+            margin: 0;
+            align-items: center;
+            column-gap: 50px;
+            li {
+                list-style: none;
+                a {
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 16px;
+                    color: $color-primary-black;
+                    &:hover {
+                        color: $color-primary-orange;
+                    }
+
+                }
+            }
+        }
+    }
+    button {
+        height: 40px;
+        background-color: $color-primary-orange;
+        border-radius: 40px;
+        border: none;
+        color: $color-primary-white;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 0 17px;
+    }
+}
+.header {
+    background: url(/assets/header.png) no-repeat center center #f2f2f2;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &-text {
+        padding: 0 100px;
+        h4 {
+            font-weight: 600;
+            color: $color-primary-orange;
+            font-size: 30px;
+            margin: 20px 0;
+        }
+        h1 {
+            font-weight: 800;
+            color: $color-primary-black;
+            font-size: 80px;
+            margin: 0;
+        }
+    }
+   
+}
