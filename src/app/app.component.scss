@@ -1,75 +1,221 @@
 @import "./styles/variables";
+@import "./styles/breakpoints";
 
 
 .menu {
     display: flex;
-    justify-content: space-around;
     position: fixed;
-    width: 100%;
+    width: calc(100% - 60px);
+    padding: 0 30px;
     align-items: center;
+    justify-content: space-between;
+    @include _tablet {
+        justify-content: space-around;
+        padding: 0;
+        width: 100%;
+    }
     &-logo {
-        display: flex;
+        max-width: 190px;
+    }
+    &-nav {
+        display: none;
         justify-content: space-between;
-        column-gap: 70px;
-        img {
-            max-width: 190px;
-        }
-        ul {
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        column-gap: 20px;
+        @include _tablet {
+            font-size: 15px;
             display: flex;
-            justify-content: space-between;
-            padding: 0;
-            margin: 0;
-            align-items: center;
+        }
+        @include _desktop {
+            font-size: 16px;
             column-gap: 50px;
-            li {
-                list-style: none;
-                a {
-                    text-transform: uppercase;
-                    text-decoration: none;
-                    font-weight: 600;
-                    font-size: 16px;
-                    color: $color-primary-black;
-                    &:hover {
-                        color: $color-primary-orange;
-                    }
-
+        }
+        li {
+            list-style: none;
+            a {
+                text-transform: uppercase;
+                text-decoration: none;
+                font-weight: 600;
+                color: $color-primary-black;
+                &:hover {
+                    color: $color-primary-orange;
                 }
             }
         }
     }
-    button {
-        height: 40px;
+    &-cta {
+        border: none;
+        height: 32px;
         background-color: $color-primary-orange;
         border-radius: 40px;
-        border: none;
         color: $color-primary-white;
-        font-size: 16px;
+        font-size: 14px;
         text-transform: uppercase;
         font-weight: 600;
         padding: 0 17px;
+        cursor: pointer;
+        bottom: 30px;
+        position: fixed;
+        display: block;
+        left: calc(50% - 76px);
+        @include _tablet {
+            position: unset;
+            display: block;
+            font-size: 14px;
+        }
+    }
+    &-hamburger {
+        border: none;
+        border-top: 2px solid $color-primary-black;
+        border-bottom: 2px solid $color-primary-black;
+        width: 28px;
+        height: 24px;
+        position: relative;
+        cursor: pointer;
+        transition: border-color 0.2s ease-out;
+        @include _tablet {
+            display: none;
+        }
+        &:after, &:before {
+            content: '';
+            border: 1px solid #262626;
+            position: absolute;
+            top: 9px;
+            left: 0;
+            width: 26px;
+            transition: transform 0.2s ease-out;
+        }
+    }
+    &.open {
+        height: 100%;
+        background-color: $color-primary-white;
+        flex-direction: column;
+        row-gap: 20px;
+        justify-content: center;
+        .menu{
+            &-nav {
+                display: flex;
+                flex-direction: column;
+                row-gap: 12px;
+            }
+            &-hamburger {
+                position: absolute;
+                right: 30px;
+                top: 30px;
+                border-color: transparent;
+                &:after {
+                    transform: rotate(45deg);
+                }
+                &:before {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
     }
 }
+
 .header {
-    background: url(/assets/header.png) no-repeat center center #f2f2f2;
+    background: url(/assets/header.png) no-repeat 77% center #f2f2f2;
     background-size: cover;
     height: 100vh;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    @include _tablet {
+        align-items: center;
+    }
     &-text {
-        padding: 0 100px;
-        h4 {
-            font-weight: 600;
-            color: $color-primary-orange;
-            font-size: 30px;
-            margin: 20px 0;
+        padding: 140px 40px 0;
+        @include _sm {
+            padding: 200px 40px 0;
+        }
+        @include _tablet {
+            padding: 0 100px;
         }
         h1 {
-            font-weight: 800;
             color: $color-primary-black;
-            font-size: 80px;
             margin: 0;
+            font-size: 34px;
+            font-weight: 800;
+            @include _tablet {
+                font-size: 50px;
+            }
+            @include _desktop {
+                font-size: 66px;
+            }
+            @include _lg {
+                font-size: 80px;
+            }
+        }
+        h4 {
+            color: $color-primary-orange;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            @include _tablet {
+                font-size: 22px;
+            }
+            @include _desktop {
+                font-size: 26px;
+            }
+            @include _lg {
+                font-size: 30px;
+            }
         }
     }
-   
+}
+
+.calendly {
+    &-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &.hidden {
+            display: none;
+        }
+    }
+    &-inline-widget {
+        min-width: 320px;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(2px);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 22px;
+    right: 42px;
+    z-index: 3;
+    opacity: 0.8;
+    width: 30px;
+    height: 30px;
+    @media (min-width: 1000px) {
+        right: 32px;
+    }
+    &:hover {
+        opacity: 1;
+    }
+    &:after, &::before {
+        content: "";
+        display: block;
+        width: 3px;
+        height: 20px;
+        background-color: #262626;
+        transform: rotate(45deg);
+        border-radius: 3px;
+        position: absolute;
+        left: 12px;
+        top: 6px;
+    }
+    &:after {
+        transform: rotate(-45deg);
+    }
 }

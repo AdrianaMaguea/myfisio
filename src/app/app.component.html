@@ -1,14 +1,13 @@
-<div class="menu">
-  <div class="menu-logo">
-    <img src="../assets/horizontal.png" alt="">
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Servicios</a></li>
-      <li><a href="#">Paquetes</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-  </div>
-  <button>Agenda tu cita</button>
+<div class="menu" [class.open]="menuOpen">
+  <img class="menu-logo" src="../assets/horizontal.png" alt="">
+  <ul class="menu-nav">
+    <li><a href="#">Inicio</a></li>
+    <li><a href="#">Servicios</a></li>
+    <li><a href="#">Paquetes</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+  <button class="menu-cta" (click)="onCalendlyOpen()">Agenda tu cita</button>
+  <button class="menu-hamburger" (click)="toggleMenu()"></button>
 </div>
 
 <section class="header">
@@ -17,3 +16,8 @@
     <h1>A TU ALCANCE</h1>
   </div>
 </section>
+
+<div class="calendly-container" [class.hidden]="!isCalendlyOpen">
+  <span class="close-btn" (click)="onCalendlyClose()"></span>
+  <div class="calendly-inline-widget" data-url="https://calendly.com/myfisio/cita-consultorio"></div>
+</div>
