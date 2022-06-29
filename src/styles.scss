@@ -1,17 +1,53 @@
+@import "./app/styles/variables";
+@import "./app/styles/breakpoints";
+
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
 
+h2 {
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include _sm {
+        font-size: 40px;
+    }
+    @include _desktop {
+        font-size: 60px;
+    }
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    @include _tablet {
+        font-size: 32px;
+    }
+    @include _desktop {
+        font-size: 40px;
+    }
+}
+
+h5 {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
 .container {
     padding: 0 24px;
-    @media (min-width: 480px) {
+    @include _xs {
         padding: 0 50px;
     }
-    @media (min-width: 1200px) {
-        padding: 0;
-        max-width: 1600px;
+    @include _lg {
+        max-width: 1000px;
+        margin: auto;
+    }
+    @include _xl {
+        max-width: 1400px;
         margin: auto;
     }
 }

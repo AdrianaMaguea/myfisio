@@ -21,27 +21,27 @@
     <div class="power-text">
       <div class="power-line">
         <div class="power-line-title">
-          <img src="../assets/responsive.png" alt="">
-          <h2>Mejora tu rendimiento</h2>
+          <img class="power-line-title-icon" src="../assets/responsive.png" alt="">
+          <h3>Mejora tu rendimiento</h3>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a enim nec nisl ullamcorper eleifend. Praesent risus leo, fringilla et nulla at, egestas euismod orci. </p>
       </div>
       <div class="power-line">
         <div class="power-line-title">
-          <img src="../assets/responsive.png" alt="">
-          <h2>Entrena sin dolor</h2>
+          <img class="power-line-title-icon" src="../assets/responsive.png" alt="">
+          <h3>Entrena sin dolor</h3>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a enim nec nisl ullamcorper eleifend. Praesent risus leo, fringilla et nulla at, egestas euismod orci. </p>
       </div>
       <div class="power-line">
         <div class="power-line-title">
-          <img src="../assets/responsive.png" alt="">
-          <h2>Potencializate</h2>
+          <img class="power-line-title-icon" src="../assets/responsive.png" alt="">
+          <h3>Potencializate</h3>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a enim nec nisl ullamcorper eleifend. Praesent risus leo, fringilla et nulla at, egestas euismod orci. </p>
       </div>
   </div>
-    <img src="../assets/power.png" alt="">
+    <img class="power-content-image" src="../assets/power.png" alt="">
   </div>
 </section>
 <section class="ourservices">
@@ -79,51 +79,52 @@
     </div>
   </div>
 </section>
+
 <section class="packs">
   <div class="packs-content container">
     <h2>Paquetes</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a enim nec nisl ullamcorper eleifend. Praesent risus leo, fringilla et nulla at, egestas euismod orci.</p>
     <div class="packs-our">
       <div class="packs-our-content">
-        <div class="price">
-          <span>Recuperacion Miembro Inferior</span>
-          <p>$590.000</p>
+        <div class="packs-price">
+          <h5>Recuperacion Miembro Inferior</h5>
+          <p class="packs-price-tag">$590.000</p>
         </div>
         <ul>
-          <li>Evaluacion fisica + recomendaciones iniciales</li>
+          <li>Evaluacion física + recomendaciones iniciales</li>
           <li>3 sesiones de Electroterapia </li>
           <li>3 sesiones ventosaterapia</li>
-          <li>2 masajes de liberacione medio cuerpo </li>
-          <li>1 masaje de liberacion cuerpo completo</li>
+          <li>2 masajes de liberación medio cuerpo </li>
+          <li>1 masaje de liberación cuerpo completo</li>
           <li>2 masajes con Gua Sha </li>
-          <li>2 sesion de presoterapia</li>
-          <li>1 sesion de vibropercusion</li>
-          <li>1 sesion de puncion Seca</li>
+          <li>2 sesión de presoterapia</li>
+          <li>1 sesión de vibropercusión</li>
+          <li>1 sesión de puncion Seca</li>
         </ul>
-        <button>agendar cita</button>
+        <button (click)="onCalendlyOpen()">agenda tu cita</button>
       </div>
       <div class="packs-our-content">
-        <div class="price">
-          <span>Recuperacion Miembro Superior</span>
-          <p>$530.000</p>
+        <div class="packs-price">
+          <h5>Recuperacion Miembro Superior</h5>
+          <p class="packs-price-tag">$530.000</p>
         </div>
         <ul>
-          <li>Evaluacion fisica + recomendaciones iniciales</li>
+          <li>Evaluacion física + recomendaciones iniciales</li>
           <li>3 sesiones de Electroterapia </li>
           <li>3 sesiones ventosaterapia</li>
-          <li>2 masajes de liberacione medio cuerpo </li>
-          <li>1 masaje de liberacion cuerpo completo</li>
+          <li>2 masajes de liberación medio cuerpo </li>
+          <li>1 masaje de liberación cuerpo completo</li>
           <li>2 masajes con Gua Sha </li>
-          <li>2 sesion de vibropercusion</li>
-          <li>2 sesion de puncion Seca</li>
+          <li>2 sesión de vibropercusión</li>
+          <li>2 sesión de puncion Seca</li>
         </ul>
-        <button>agendar cita</button>
+        <button (click)="onCalendlyOpen()">agenda tu cita</button>
       </div>
       <div class="packs-our-content">
-        <div class="price">
-          <p>Personalizado</p>
-          <span>Todas las características de los planes anteriores además de las características personalizadas que necesites. 
-          Se realizará un presupuesto ajustado a las necesidades de tu negocio.</span>
+        <div class="packs-price">
+          <h5>Personalizado</h5>
+          <p>Todas las características de los planes anteriores además de las características personalizadas que necesites. 
+          Se realizará un presupuesto ajustado a las necesidades de tu negocio.</p>
         </div>
         <button>Contacto</button>
       </div>
