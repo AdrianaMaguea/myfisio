@@ -1,22 +1,27 @@
 <div class="menu" [class.open]="menuOpen">
-  <img class="menu-logo" src="../assets/horizontal.png" alt="">
+  <img alt=""
+    class="menu-logo"
+    src="../assets/horizontal.png"
+    [routerLink]='"."'
+    [fragment]="'/'"
+    (click)="toggleMenu()">
   <ul class="menu-nav">
-    <li><a [routerLink] [fragment]="'inicio'" >Inicio</a></li>
-    <li><a href="#">Servicios</a></li>
-    <li><a href="#">Paquetes</a></li>
-    <li><a href="#">Contacto</a></li>
+    <li><a [routerLink]='"."' [fragment]="'inicio'" (click)="toggleMenu()">Inicio</a></li>
+    <li><a [routerLink]='"."' [fragment]="'servicios'" (click)="toggleMenu()">Servicios</a></li>
+    <li><a [routerLink]='"."' [fragment]="'paquetes'" (click)="toggleMenu()">Paquetes</a></li>
+    <li><a [routerLink]='"."' [fragment]="'contacto'" (click)="toggleMenu()">Contacto</a></li>
   </ul>
   <button class="menu-cta" (click)="onCalendlyOpen()">Agenda tu cita</button>
   <button class="menu-hamburger" (click)="toggleMenu()"></button>
 </div>
-<section class="header">
+<section class="header" id="/">
   <div class="header-text">
     <h4>FISIOTERAPIA DEPORTIVA</h4>
     <h1>A TU ALCANCE</h1>
   </div>
 </section>
 
-<section class="power" [id]="'inicio'">
+<section class="power" id="inicio">
   <div class="power-content container">
     <div class="power-text">
       <div class="power-line">
@@ -44,7 +49,8 @@
     <img class="power-content-image" src="../assets/power.png" alt="">
   </div>
 </section>
-<section class="ourservices">
+
+<section [id]="'servicios'" class="ourservices">
   <div class="ourservices-title">
     <h2>Nuestros servicios</h2>
   </div>
@@ -75,12 +81,12 @@
     </div>
     <div>
       <img src="../assets/7.png" alt="">
-      <h5>Ventosaterapia</h5>
+      <h5>Terapia con ventosas</h5>
     </div>
   </div>
 </section>
 
-<section class="packs">
+<section [id]="'paquetes'" class="packs">
   <div class="packs-content container">
     <h2>Paquetes</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a enim nec nisl ullamcorper eleifend. Praesent risus leo, fringilla et nulla at, egestas euismod orci.</p>
@@ -131,23 +137,29 @@
     </div>
   </div>
 </section>
-<section class="contact">
+
+<section [id]="'contacto'" class="contact">
   <div class="contact-content container">
     <h2>Contacto</h2>
     <div class="contact-content-our">
       <div class="contact-text">
-        <h5>Utiliza las siguientes vías de contacto, o rellena el formulario.</h5>
+        <h5>Utiliza las siguientes vías de contacto.</h5>
         <div class="contact-icon">
           <img src="../assets/inst.png" alt="">
-          <p>myfisio.co</p>
+          <p>
+            <a href="https://www.instagram.com/myfisio.co" target="_blank">myfisio.co</a>
+          </p>
         </div>
         <div class="contact-icon">
           <img src="../assets/what.png" alt="">
-          <p>313 724 8297</p>
+          <p>
+            <a href="https://wa.me/3137248297?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n." target="_blank">313 724 8297</a>
+          </p>
         </div>
         <div class="contact-icon">
           <img src="../assets/email.png" alt="">
-          <p>info@myfisio.co</p>
+          <p>
+            <a href="mailto:info@myfisio.co" target="_blank">info@myfisio.co</a></p>
         </div>
       </div>
     </div>
