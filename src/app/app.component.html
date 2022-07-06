@@ -4,12 +4,12 @@
     src="../assets/horizontal.png"
     [routerLink]='"."'
     [fragment]="'/'"
-    (click)="toggleMenu()">
+    (click)="toggleMenu(false)">
   <ul class="menu-nav">
-    <li><a [routerLink]='"."' [fragment]="'inicio'" (click)="toggleMenu()">Inicio</a></li>
-    <li><a [routerLink]='"."' [fragment]="'servicios'" (click)="toggleMenu()">Servicios</a></li>
-    <li><a [routerLink]='"."' [fragment]="'paquetes'" (click)="toggleMenu()">Paquetes</a></li>
-    <li><a [routerLink]='"."' [fragment]="'contacto'" (click)="toggleMenu()">Contacto</a></li>
+    <li><a [routerLink]='"."' [fragment]="'inicio'" (click)="toggleMenu(false)">Inicio</a></li>
+    <li><a [routerLink]='"."' [fragment]="'servicios'" (click)="toggleMenu(false)">Servicios</a></li>
+    <li><a [routerLink]='"."' [fragment]="'paquetes'" (click)="toggleMenu(false)">Paquetes</a></li>
+    <li><a [routerLink]='"."' [fragment]="'contacto'" (click)="toggleMenu(false)">Contacto</a></li>
   </ul>
   <button class="menu-cta" (click)="onCalendlyOpen()">Agenda tu cita</button>
   <button class="menu-hamburger" (click)="toggleMenu()"></button>

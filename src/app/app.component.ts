@@ -17,8 +17,8 @@ export class AppComponent {
     private renderer: Renderer2
   ){}
 
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
+  toggleMenu(isOpen?: boolean) {
+    this.menuOpen = isOpen === undefined ? !this.menuOpen : isOpen;
     if (this.menuOpen) {
       this.renderer.addClass(this.document.body, 'no-scroll');
     } else {
