@@ -1,7 +1,7 @@
 <div class="menu" [class.open]="menuOpen">
   <img class="menu-logo" src="../assets/horizontal.png" alt="">
   <ul class="menu-nav">
-    <li><a href="#">Inicio</a></li>
+    <li><a [routerLink] [fragment]="'inicio'" >Inicio</a></li>
     <li><a href="#">Servicios</a></li>
     <li><a href="#">Paquetes</a></li>
     <li><a href="#">Contacto</a></li>
@@ -16,7 +16,7 @@
   </div>
 </section>
 
-<section class="power">
+<section class="power" [id]="'inicio'">
   <div class="power-content container">
     <div class="power-text">
       <div class="power-line">
@@ -24,21 +24,21 @@
           <img class="power-line-title-icon" src="../assets/responsive.png" alt="">
           <h3>Mejora tu rendimiento</h3>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a enim nec nisl ullamcorper eleifend. Praesent risus leo, fringilla et nulla at, egestas euismod orci. </p>
+        <p>De la mano de nuestros profesionales altamente capacitados te ayudamos a impulsar tus capacidades, generando así un aumento en tu rendimiento deportivo.</p>
       </div>
       <div class="power-line">
         <div class="power-line-title">
           <img class="power-line-title-icon" src="../assets/responsive.png" alt="">
           <h3>Entrena sin dolor</h3>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a enim nec nisl ullamcorper eleifend. Praesent risus leo, fringilla et nulla at, egestas euismod orci. </p>
+        <p>En myfisio.co valoramos el movimiento, entendiendo el privilegio que es movernos sin dolencias. Por esto nos encargamos del reentrenamiento de este, tratando la raíz del problema.</p>
       </div>
       <div class="power-line">
         <div class="power-line-title">
           <img class="power-line-title-icon" src="../assets/responsive.png" alt="">
           <h3>Potencializate</h3>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a enim nec nisl ullamcorper eleifend. Praesent risus leo, fringilla et nulla at, egestas euismod orci. </p>
+        <p>Todos los atletas, sin importar su deporte necesitan del entreno consciente y enfocado a sus metas. Desde myfisio.co te ayudamos a ser una mejor versión de ti en cada paso como atleta. Cuida tu cuerpo a cada paso del camino, para asi llegar a conocer tus limites de una manera sana.</p>
       </div>
   </div>
     <img class="power-content-image" src="../assets/power.png" alt="">
@@ -134,7 +134,6 @@
 <section class="contact">
   <div class="contact-content container">
     <h2>Contacto</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a enim nec nisl ullamcorper eleifend. Praesent risus leo, fringilla et nulla at, egestas euismod orci.</p>
     <div class="contact-content-our">
       <div class="contact-text">
         <h5>Utiliza las siguientes vías de contacto, o rellena el formulario.</h5>
@@ -150,12 +149,6 @@
           <img src="../assets/email.png" alt="">
           <p>info@myfisio.co</p>
         </div>
-      </div>
-      <div class="contact-input">
-        <input placeholder="Escribe tu nombre" type="text">
-        <input placeholder="Escribe tu email" type="email">
-        <input placeholder="Escribe tu celular" type="tel">
-        <input placeholder="Escribe tu mensaje" type="text">
       </div>
     </div>
   </div>
