@@ -6,11 +6,6 @@ const routerOptions: ExtraOptions = {
     anchorScrolling: 'enabled',
     scrollOffset: [0, 100],
     relativeLinkResolution: 'legacy'
-}{
-    scrollPositionRestoration: 'enabled',
-    anchorScrolling: 'enabled',
-    scrollOffset: [0, 100],
-    relativeLinkResolution: 'legacy'
 };
 
 const routes: Routes = [];
