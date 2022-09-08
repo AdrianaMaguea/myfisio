@@ -1,5 +1,6 @@
 import { Component, Inject, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +12,13 @@ export class AppComponent {
   
   menuOpen = false;
   isCalendlyOpen = false;
+  item$: Observable<any[]>;
   
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2
-  ){}
+  ){
+  }
 
   toggleMenu(isOpen?: boolean) {
     this.menuOpen = isOpen === undefined ? !this.menuOpen : isOpen;
