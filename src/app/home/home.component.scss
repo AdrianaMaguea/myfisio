@@ -1,0 +1,524 @@
+@import "../styles/variables";
+@import "../styles/breakpoints";
+
+.menu {
+    display: flex;
+    position: fixed;
+    width: calc(100% - 60px);
+    padding: 0 30px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(242, 242, 242, 0.8);
+    border-bottom: 1px solid rgba(242, 242, 242, 0.4);
+    // &::after {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     backdrop-filter: blur(10px);
+    // }
+    @include _tablet {
+        box-shadow: 0 2px 13px rgb(242 242 242 / 80%);
+        justify-content: space-around;
+        padding: 0;
+        width: 100%;
+    }
+    &-logo {
+        max-width: 190px;
+        cursor: pointer;
+    }
+    &-nav {
+        display: none;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        column-gap: 20px;
+        @include _tablet {
+            font-size: 15px;
+            display: flex;
+        }
+        @include _desktop {
+            font-size: 16px;
+            column-gap: 50px;
+        }
+        li {
+            list-style: none;
+            a {
+                text-transform: uppercase;
+                text-decoration: none;
+                font-weight: 600;
+                color: $color-primary-black;
+                &:hover {
+                    color: $color-primary-orange;
+                }
+            }
+        }
+    }
+    &-cta {
+        border: none;
+        height: 32px;
+        background-color: $color-primary-orange;
+        border-radius: 40px;
+        color: $color-primary-white;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 0 17px;
+        cursor: pointer;
+        bottom: 30px;
+        position: fixed;
+        display: block;
+        left: calc(50% - 76px);
+        box-shadow: 1px 1px 5px rgb(0 0 0 / 50%);
+        @include _tablet {
+            position: unset;
+            display: block;
+            font-size: 14px;
+            box-shadow: none;
+        }
+    }
+    &-hamburger {
+        border: none;
+        border-top: 2px solid $color-primary-black;
+        border-bottom: 2px solid $color-primary-black;
+        width: 28px;
+        height: 24px;
+        position: relative;
+        cursor: pointer;
+        transition: border-color 0.2s ease-out;
+        background-color: transparent;
+        @include _tablet {
+            display: none;
+        }
+        &:after, &:before {
+            content: '';
+            border: 1px solid $color-primary-black;
+            position: absolute;
+            top: 9px;
+            left: 0;
+            width: 26px;
+            transition: transform 0.2s ease-out;
+            background-color: $color-primary-black;
+        }
+    }
+    &.open {
+        height: 100%;
+        background-color: $color-primary-white;
+        flex-direction: column;
+        row-gap: 20px;
+        justify-content: center;
+        .menu{
+            &-nav {
+                display: flex;
+                flex-direction: column;
+                row-gap: 12px;
+            }
+            &-hamburger {
+                position: absolute;
+                right: 30px;
+                top: 30px;
+                border-color: transparent;
+                &:after {
+                    transform: rotate(45deg);
+                }
+                &:before {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+.header {
+    background: url(/assets/header.png) no-repeat 77% center #f2f2f2;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    @include _tablet {
+        align-items: center;
+    }
+    &-text {
+        padding: 140px 40px 0;
+        @include _sm {
+            padding: 200px 40px 0;
+        }
+        @include _tablet {
+            padding: 0 100px;
+        }
+        h1 {
+            color: $color-primary-black;
+            margin: 0;
+            font-size: 34px;
+            font-weight: 800;
+            @include _tablet {
+                font-size: 50px;
+            }
+            @include _desktop {
+                font-size: 66px;
+            }
+            @include _lg {
+                font-size: 80px;
+            }
+        }
+        h4 {
+            color: $color-primary-orange;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            @include _tablet {
+                font-size: 22px;
+            }
+            @include _desktop {
+                font-size: 26px;
+            }
+            @include _lg {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+.calendly {
+    &-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &.hidden {
+            display: none;
+        }
+    }
+    &-inline-widget {
+        min-width: 320px;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(2px);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 22px;
+    right: 42px;
+    z-index: 3;
+    opacity: 0.8;
+    width: 30px;
+    height: 30px;
+    @media (min-width: 1000px) {
+        right: 32px;
+    }
+    &:hover {
+        opacity: 1;
+    }
+    &:after, &::before {
+        content: "";
+        display: block;
+        width: 3px;
+        height: 20px;
+        background-color: #262626;
+        transform: rotate(45deg);
+        border-radius: 3px;
+        position: absolute;
+        left: 12px;
+        top: 6px;
+    }
+    &:after {
+        transform: rotate(-45deg);
+    }
+}
+
+.header {
+    background: url(/assets/header.png) no-repeat 77% center #f2f2f2;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    @include _tablet {
+        align-items: center;
+    }
+    &-text {
+        padding: 140px 40px 0;
+        @include _sm {
+            padding: 200px 40px 0;
+        }
+        @include _tablet {
+            padding: 0 100px;
+        }
+        h1 {
+            color: $color-primary-black;
+            margin: 0;
+            font-size: 34px;
+            font-weight: 800;
+            @include _tablet {
+                font-size: 50px;
+            }
+            @include _desktop {
+                font-size: 66px;
+            }
+            @include _lg {
+                font-size: 80px;
+            }
+        }
+        h4 {
+            color: $color-primary-orange;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            @include _tablet {
+                font-size: 22px;
+            }
+            @include _desktop {
+                font-size: 26px;
+            }
+            @include _lg {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+.calendly {
+    &-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &.hidden {
+            display: none;
+        }
+    }
+    &-inline-widget {
+        min-width: 320px;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(2px);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 22px;
+    right: 42px;
+    z-index: 3;
+    opacity: 0.8;
+    width: 30px;
+    height: 30px;
+    @media (min-width: 1000px) {
+        right: 32px;
+    }
+    &:hover {
+        opacity: 1;
+    }
+    &:after, &::before {
+        content: "";
+        display: block;
+        width: 3px;
+        height: 20px;
+        background-color: #262626;
+        transform: rotate(45deg);
+        border-radius: 3px;
+        position: absolute;
+        left: 12px;
+        top: 6px;
+    }
+    &:after {
+        transform: rotate(-45deg);
+    }
+}
+
+.power {
+    background-color: $color-primary-black;
+    padding: 0 0 30px;
+    &-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 50px;
+        flex-direction: column;
+        @include _desktop {
+            flex-direction: row;
+        }
+        &-image {
+            max-width: 450px;
+            width: 100%;
+            aspect-ratio: 0.68;
+            object-fit: cover;
+            object-position: bottom;
+        }
+    }
+    &-line {
+        &-title {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            &-icon {
+                max-width: 40px;
+                margin-right: 12px;
+            }
+            h3 {
+                color: $color-primary-orange;
+                margin: 20px 0 10px 0;
+            }
+        }
+        p {
+            color: $color-secondary-grey;
+            font-size: 16px;
+        }
+    }
+}
+
+.ourservices {
+    background-color: $color-primary-white;
+    padding: 100px 0;
+    &-title {
+        padding: 0 0 100px 0;
+        h2 {
+            color: $color-primary-black;
+            text-align: center;
+            margin: 0;
+        }
+    }
+    &-content {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        img {
+            max-width: 200px;
+            border-radius: 50%;
+        }
+        h5 {
+            text-align: center;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: $color-primary-black;
+            font-weight: 600;
+        }
+    }
+}
+
+.packs {
+    background-color: $color-primary-orange;
+    padding: 100px 0;
+    color: $color-primary-white;
+    h2 {
+        margin: 0 0 10px 0;
+    }
+    &-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &-our {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 30px;
+        gap: 40px;
+        @include _tablet {
+            flex-direction: row;
+        }
+        &-content { 
+            flex-basis: 33%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            ul {
+                margin: 0 0 40px;
+                padding: 0 0 0 18px;
+                li {
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: $color-primary-white;
+                }
+            }
+            button, a {
+                height: 40px;
+                background-color: $color-primary-white;
+                border-radius: 40px;
+                border: none;
+                color: $color-primary-orange;
+                font-size: 16px;
+                text-transform: uppercase;
+                font-weight: 600;
+                padding: 0 17px;
+                cursor: pointer;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    &-price {
+        h5 {
+            color: white;
+        }
+        &-tag {
+            font-size: 28px;
+            font-weight: 800;
+        }
+    }
+}
+
+.contact {
+    background-color: $color-primary-black;
+    padding: 100px 0;
+    color: $color-primary-white;
+    &-content {
+        h2 {
+            margin: 0 0 10px 0;
+            text-align: center;
+        }
+        p {
+            font-weight: 400;
+            font-size: 16px;
+            color: $color-primary-white;
+            text-align: center;
+        }
+        &-our {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0 50px;
+            .contact-text {
+                flex-basis: 80%;
+                h5 {
+                    font-size: 24px;
+                    font-weight: 600;
+                    color: $color-secondary-grey;
+                    margin: 0 0 10px;
+                }
+                .contact-icon {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    img {
+                        max-width: 60px;
+                        max-height: 60px;
+                    }
+                    p, a {
+                        font-size: 24px;
+                        font-weight: 600;
+                        color: $color-secondary-grey;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}

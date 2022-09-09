@@ -1,5 +1,3 @@
-<!-- <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-</mat-form-field> -->
+<mat-calendar [(selected)]="selected" [dateFilter]="myFilter" [dateClass]="dateClass"></mat-calendar>
+
+<p>Selected date: {{selected}}</p>
